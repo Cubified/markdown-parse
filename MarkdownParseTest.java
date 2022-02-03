@@ -65,6 +65,7 @@ public class MarkdownParseTest {
         String str =
             Files.readString(Path.of("test-file2.md"));
         assertEquals(
+            "Validate MarkdownParse on test-file2.md",
             List.of("https://something.com", "some-page.html"),
             MarkdownParse.getLinks(str)
         );
@@ -74,6 +75,7 @@ public class MarkdownParseTest {
         String str =
             Files.readString(Path.of("test-file3.md"));
         assertEquals(
+            "Validate MarkdownParse on test-file3.md",
             List.of(),
             MarkdownParse.getLinks(str)
         );
@@ -83,6 +85,7 @@ public class MarkdownParseTest {
         String str =
             Files.readString(Path.of("test-file4.md"));
         assertEquals(
+            "Validate MarkdownParse on test-file4.md",
             List.of(),
             MarkdownParse.getLinks(str)
         );
@@ -92,6 +95,7 @@ public class MarkdownParseTest {
         String str =
             Files.readString(Path.of("test-file5.md"));
         assertEquals(
+            "Validate MarkdownParse on test-file5.md",
             List.of(),
             MarkdownParse.getLinks(str)
         );
@@ -101,6 +105,7 @@ public class MarkdownParseTest {
         String str =
             Files.readString(Path.of("test-file6.md"));
         assertEquals(
+            "Validate MarkdownParse on test-file6.md",
             List.of(),
             MarkdownParse.getLinks(str)
         );
@@ -110,6 +115,7 @@ public class MarkdownParseTest {
         String str =
             Files.readString(Path.of("test-file7.md"));
         assertEquals(
+            "Validate MarkdownParse on test-file7.md",
             List.of(),
             MarkdownParse.getLinks(str)
         );
@@ -119,6 +125,7 @@ public class MarkdownParseTest {
         String str =
             Files.readString(Path.of("test-file8.md"));
         assertEquals(
+            "Validate MarkdownParse on test-file8.md",
             List.of(),
             MarkdownParse.getLinks(str)
         );
