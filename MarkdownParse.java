@@ -19,7 +19,7 @@ public class MarkdownParse {
             if(nextOpenBracket > 0 &&
                markdown.charAt(nextOpenBracket-1) == '!'){
                 // Image, skip
-                currentIndex = nextCloseBracket + 1;
+                currentIndex = nextOpenBracket + 1;
             } else if(nextOpenBracket >= 0 &&
                       nextCloseBracket >= 0 &&
                       nextCloseBracket > nextOpenBracket+1 &&

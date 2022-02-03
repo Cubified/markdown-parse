@@ -53,7 +53,7 @@ public class MarkdownParseTest {
             MarkdownParse.getLinks(breaking_test_3)
         );
     }
-    @Test(timeout = 1000) // 1 second
+    @Test
     public void testGetLinks_breakingTest4() throws IOException {
         String breaking_test_4 =
             Files.readString(Path.of("breaking_test_4.md"));
