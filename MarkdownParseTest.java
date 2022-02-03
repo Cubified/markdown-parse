@@ -12,17 +12,14 @@ public class MarkdownParseTest {
     public void addition() {
         assertEquals(2, 1 + 1);
     }
-
     @Test
-    public void testGetLinks_testFile() throws IOException {
-        String test_file = Files.readString(Path.of("test-file.md"));
-        assertEquals(
-            "getLinks() should get all links in a valid file",
-            List.of("https://something.com", "some-page.html"),
-            MarkdownParse.getLinks(test_file)
-        );
+    public void subtraction() {
+        assertEquals(0, 2 - 1);
     }
 
+    /*
+     * BREAKING TESTS
+     */
     @Test
     public void testGetLinks_breakingTest() throws IOException {
         String breaking_test = Files.readString(Path.of("breaking_test.md"));
@@ -58,10 +55,19 @@ public class MarkdownParseTest {
     }
 
     /*
-     * TEST FILES 2-8
+     * TEST FILES
      */
     @Test
-    public void testGetLinks_testilFile2() throws IOException {
+    public void testGetLinks_testFile() throws IOException {
+        String test_file = Files.readString(Path.of("test-file.md"));
+        assertEquals(
+            "getLinks() should get all links in a valid file",
+            List.of("https://something.com", "some-page.html"),
+            MarkdownParse.getLinks(test_file)
+        );
+    }
+    @Test
+    public void testGetLinks_testFile2() throws IOException {
         String str =
             Files.readString(Path.of("test-file2.md"));
         assertEquals(
@@ -71,7 +77,7 @@ public class MarkdownParseTest {
         );
     }
     @Test
-    public void testGetLinks_testilFile3() throws IOException {
+    public void testGetLinks_testFile3() throws IOException {
         String str =
             Files.readString(Path.of("test-file3.md"));
         assertEquals(
@@ -81,7 +87,7 @@ public class MarkdownParseTest {
         );
     }
     @Test
-    public void testGetLinks_testilFile4() throws IOException {
+    public void testGetLinks_testFile4() throws IOException {
         String str =
             Files.readString(Path.of("test-file4.md"));
         assertEquals(
@@ -91,7 +97,7 @@ public class MarkdownParseTest {
         );
     }
     @Test
-    public void testGetLinks_testilFile5() throws IOException {
+    public void testGetLinks_testFile5() throws IOException {
         String str =
             Files.readString(Path.of("test-file5.md"));
         assertEquals(
@@ -101,7 +107,7 @@ public class MarkdownParseTest {
         );
     }
     @Test
-    public void testGetLinks_testilFile6() throws IOException {
+    public void testGetLinks_testFile6() throws IOException {
         String str =
             Files.readString(Path.of("test-file6.md"));
         assertEquals(
@@ -111,7 +117,7 @@ public class MarkdownParseTest {
         );
     }
     @Test
-    public void testGetLinks_testilFile7() throws IOException {
+    public void testGetLinks_testFile7() throws IOException {
         String str =
             Files.readString(Path.of("test-file7.md"));
         assertEquals(
@@ -121,7 +127,7 @@ public class MarkdownParseTest {
         );
     }
     @Test
-    public void testGetLinks_testilFile8() throws IOException {
+    public void testGetLinks_testFile8() throws IOException {
         String str =
             Files.readString(Path.of("test-file8.md"));
         assertEquals(
