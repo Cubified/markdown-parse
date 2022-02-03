@@ -53,6 +53,17 @@ public class MarkdownParseTest {
             MarkdownParse.getLinks(breaking_test_3)
         );
     }
+    @Test(timeout = 1000) // 1 second
+    public void testGetLinks_breakingTest4() throws IOException {
+        String breaking_test_4 =
+            Files.readString(Path.of("breaking_test_4.md"));
+        assertEquals(
+            "getLinks() should find no link in an invalid file " +
+            "(image with no closing bracket)",
+            List.of(),
+            MarkdownParse.getLinks(breaking_test_4)
+        );
+    }
 
     /*
      * TEST FILES
