@@ -26,9 +26,16 @@ public class MarkdownParse {
                       openParen == nextCloseBracket+1 &&
                       closeParen >= 0
             ){
-                // Valid link, add to list
-                toReturn.add(markdown.substring(openParen + 1, closeParen));
-                currentIndex = closeParen + 1;
+                String sub = markdown.substring(openParen + 1, closeParen).trim();
+                if(sub.indexOf(" ") > -1){
+                    // Invalid link (contains non-trailing/leading whitespace),
+                    //   advance one character
+                    currentIndex += 1;
+                } else {
+                    // Valid link, add to list
+                    toReturn.add(sub);
+                    currentIndex = closeParen + 1;
+                }
             } else {
                 // Invalid link, advance one character
                 currentIndex += 1;

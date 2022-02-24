@@ -147,4 +147,14 @@ public class MarkdownParseTest {
             MarkdownParse.getLinks(str)
         );
     }
+    @Test
+    public void testGetLinks_testFile9() throws IOException {
+        String str =
+            Files.readString(Path.of("test-file9.md"));
+        assertEquals(
+            "Validate MarkdownParse on test-file9.md",
+            List.of(),
+            MarkdownParse.getLinks(str)
+        );
+    }
 }
