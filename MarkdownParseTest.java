@@ -157,4 +157,56 @@ public class MarkdownParseTest {
             MarkdownParse.getLinks(str)
         );
     }
+
+    /*
+     * LAB REPORT 4
+     */
+    @Test
+    public void testGetLinks_snippet1() throws IOException {
+        String str = "`[a link`](url.com)" +
+            "[another link](`google.com)`" +
+            "[`cod[e`](google.com)" +
+            "[`code]`](ucsd.edu)";
+        assertEquals(
+            "Validate MarkdownParse on snippet 1",
+            List.of("`google.com", "google.com", "ucsd.edu"),
+            MarkdownParse.getLinks(str)
+        );
+    }
+
+    @Test
+    public void testGetLinks_snippet2() throws IOException {
+        String str = "[a [nested link](a.com)](b.com)" +
+            "[a nested parenthesized url](a.com(()))" +
+            "[some escaped \\[ brackets \\]](example.com)";
+        assertEquals(
+            "Validate MarkdownParse on snippet 2",
+            List.of("a.com", "a.com(())", "example.com"),
+            MarkdownParse.getLinks(str)
+        );
+    }
+
+    @Test
+    public void testGetLinks_snippet3() throws IOException {
+        String str = "[this title text is really long and takes up more than " +
+            "one line" +
+            "and has some line breaks](" +
+            "    https://www.twitter.com" +
+            ")" +
+            "[this title text is really long and takes up more than " +
+            "one line](" +
+            "    https://ucsd-cse15l-w22.github.io/" +
+            ")" +
+            "[this link doesn't have a closing parenthesis](github.com" +
+            "And there's still some more text after that." +
+            "[this link doesn't have a closing parenthesis for a while](https://cse.ucsd.edu/" +
+            ")" +
+            "And then there's more text";
+
+        assertEquals(
+            "Validate MarkdownParse on snippet 3",
+            List.of("https://ucsd-cse15l-w22.github.io/"),
+            MarkdownParse.getLinks(str)
+        );
+    }
 }
